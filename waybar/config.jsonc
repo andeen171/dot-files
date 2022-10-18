@@ -1,0 +1,94 @@
+{
+    "position": "top", 
+    "modules-left": [
+		"custom/arch-pill", 
+		"sway/workspaces",
+		"sway/mode",
+		"sway/window"
+	],
+	"modules-center": ["custom/playerctl"],
+    "modules-right": ["pulseaudio", "cpu", "memory", "idle_inhibitor", "tray", "clock"],
+    // Modules configuration
+	"custom/arch-pill": {
+		"format": "  ",
+		"on-click": "exec nwg-drawer -c 7 -is 70 -spacing 23",
+		"tooltip": false
+	},
+	"sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+	"sway/workspaces": {
+	    "all-outputs": true,
+		"enable-bar-scroll": true,
+		"format": "{icon}",
+		"persistent_workspaces": {
+		"1": [],
+		"2": [],
+		"3": [],
+		"4": [],
+		"5": []
+		},
+		"format-icons": {
+		"1": "一",
+		"2": "二",
+		"3": "三",
+		"4": "四",
+		"5": "五",
+		"default": "",
+		"urgent": "",
+		"focused": ""
+		}
+     },
+	 "idle_inhibitor": {
+        "format": "{icon}",
+       "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+	"clock": {
+		"format": "{:%a %d %H:%M}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+	},
+	"network": {
+        // "interface": "wlp2s0", // (Optional) To force the use of this interface
+        "format": "⚠",
+        "format-wifi": " ",
+        "format-ethernet": " ",
+        "format-disconnected": "⚠",
+        "on-click": "alacritty -e nmtui",
+		"tooltip-format": "{ifname}: {ipaddr}/{cidr}"
+    },
+	"pulseaudio": {
+        "format": "{icon}  {volume: >3}%",
+        "format-bluetooth": "{icon}  {volume: >3}%",
+        "format-muted":" muted",
+        "format-icons": {
+            "headphones": "",
+            "handsfree": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+     "custom/pacman": {
+        "format": " {}",
+        "interval": 7200,                     // every two hours
+        "exec": "i=$(checkupdates); echo \"$i\" |wc -l; echo \"$i\" |column -t |tr '\n' '\r'",       // # of updates and tooltip details
+        "exec-if": "exit 0",                  // always run; consider advanced run conditions
+        "on-click": "alacritty -e sudo pacman -Syu", // update system
+        "signal": 8
+    },
+	"cpu": {
+        "format": "﬙ {usage: >3}%",
+        "on-click": "alacritty -e htop"
+    },
+    "memory": {
+        "format": " {: >3}%",
+        "on-click": "alacritty -e htop"
+    }
+}
+
