@@ -1,8 +1,8 @@
-set $mode_screenshot "<span foreground='$color10'></span>  \
-<span foreground='$color5'><b>Pick</b></span> <span foreground='$color10'>(<b>p</b>)</span> \
-<span foreground='$color5'><b>Output</b></span> <span foreground='$color10'>(<b>o</b>)</span> \
-<span foreground='$color7'>+ <span foreground='$color10'><b>Shift</b></span> for </span> \
-<span foreground='$color7'>+ <span foreground='$color10'><b>Ctrl</b></span> for </span>"
+set $mode_screenshot "<span foreground='$pink'></span>  \
+<span foreground='$text'><b>Pick</b></span> <span foreground='$peach'>(<b>p</b>)</span> \
+<span foreground='$text'><b>Output</b></span> <span foreground='$peach'>(<b>o</b>)</span> \
+<span foreground='$text'>+ <span foreground='$peach'><b>Shift</b></span> for </span> \
+<span foreground='$text'>+ <span foreground='$peach'><b>Ctrl</b></span> for </span>"
 
 mode --pango_markup $mode_screenshot {
     # output = currently active output

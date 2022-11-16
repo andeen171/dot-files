@@ -1,11 +1,12 @@
-set $mode_shutdown " <span foreground='$red'></span>  \
-    <span foreground='$text'> \
-    <span foreground='$base'>(<b>h</b>)</span>hibernate \
-    <span foreground='$base'>(<b>l</b>)</span>lock \
-    <span foreground='$base'>(<b>e</b>)</span>logout \
-    <span foreground='$base'>(<b>r</b>)</span>reboot \
-    <span foreground='$base'>(<b>u</b>)</span>suspend \
-    <span foreground='$base'>(<b>s</b>)</span>shutdown \
+set $mode_shutdown "\
+<span foreground='$red'></span>  \
+<span foreground='$text'> \
+<span foreground='$sky'>(<b>h</b>)</span>hibernate \
+<span foreground='$teal'>(<b>l</b>)</span>lock \
+<span foreground='$flamingo'>(<b>e</b>)</span>logout \
+<span foreground='$yellow'>(<b>r</b>)</span>reboot \
+<span foreground='$peach'>(<b>u</b>)</span>suspend \
+<span foreground='$red'>(<b>s</b>)</span>shutdown \
 </span>"
 
 set $purge_cliphist [ $purge_cliphist_logout == 'true' ] && rm -f $HOME/.cache/cliphist/db || exit 0
