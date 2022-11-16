@@ -102,7 +102,7 @@
     },
 
     "sway/mode": {
-        "format": "<span style=\"bold\">{}</span>",
+        "format": "<span style=\"italic\">{}</span>",
         "tooltip": false
     },
 
