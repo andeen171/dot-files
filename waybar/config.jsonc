@@ -18,36 +18,34 @@
     "position": "top",
     "margin": "10px 10px 0px 10px",
 
-    "modules-left": ["custom/menu", "sway/workspaces", "custom/scratchpad"],
-    "modules-center": ["custom/wf-recorder", "sway/mode", "custom/weather"],
+    "modules-left": ["custom/menu", "sway/workspaces", "sway/mode", "custom/scratchpad"],
+    "modules-center": ["custom/wf-recorder", "clock", "custom/playerctl"],
     "modules-right": [
         // informational
         // "sway/language",
+        "custom/weather",
+        "tray",
         "custom/github",
         "custom/clipboard",
+        "custom/pacman",
         "custom/zeit",
-        "cpu",
-        "memory",
-        "battery",
-        "temperature",
+        // "temperature",
 
         // connecting
         "network",
         "bluetooth",
 
         // media
-        "custom/playerctl",
         "idle_inhibitor",
         "custom/dnd",
         "pulseaudio",
         // "backlight",
+        "cpu",
+        "memory",
 
         // system
-        "custom/sunset",
-        "custom/pacman",
-
-        "tray",
-        "clock"
+        "battery",
+        "custom/sunset"
     ],
 
     // -------------------------------------------------------------------------
@@ -88,8 +86,8 @@
         "interval": 5,
         "format": " {}%",
         "states": {
-            "warning": 70,
-            "critical": 90
+            "warning": 50,
+            "critical": 80
         },
         "on-click": "swaymsg exec \\$term_float htop"
     },
@@ -104,7 +102,7 @@
     },
 
     "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>",
+        "format": "<span style=\"bold\">{}</span>",
         "tooltip": false
     },
 
@@ -151,8 +149,8 @@
     },
 
     "tray": {
-        "icon-size": 21,
-        "spacing": 5
+        "icon-size": 18,
+        "spacing": 10
     },
 
     "custom/pacman": {
@@ -207,7 +205,7 @@
             "on": "",
             "off": ""
         },
-        "exec": "fallback_latitude=50.1 fallback_longitude=8.7 latitude= longitude= /usr/share/sway/scripts/sunset.sh",
+        "exec": "latitude=-19.918180 longitude=-43.937050 /usr/share/sway/scripts/sunset.sh",
         "on-click": "/usr/share/sway/scripts/sunset.sh toggle; pkill -RTMIN+6 waybar",
         "exec-if": "/usr/share/sway/scripts/sunset.sh check",
         "signal": 6

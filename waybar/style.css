@@ -8,30 +8,30 @@
  * =========================================================================== */
 
 /* import css definitions for current theme */
-
+@import "themes/Catppuccin/mocha.css";
 /* -----------------------------------------------------------------------------
  * Keyframes
  * -------------------------------------------------------------------------- */
 
 @keyframes blink-warning {
     70% {
-        color: @wm_icon_bg;
+        color: @base;
     }
 
     to {
-        color: @wm_icon_bg;
-        background-color: @warning_color;
+        color: @mantle;
+        background-color: @peach;
     }
 }
 
 @keyframes blink-critical {
     70% {
-      color: @wm_icon_bg;
+      color: @base;
     }
 
     to {
-        color: @wm_icon_bg;
-        background-color: @error_color;
+        color: @mantle;
+        background-color: @red;
     }
 }
 
@@ -52,8 +52,8 @@
 
 /* The whole bar */
 window#waybar {
-    background: @theme_bg_color;
-    color: @wm_icon_bg;
+    background: @base;
+    color: @text;
     font-size: 14px;
     opacity: 0.9;
 }
@@ -81,37 +81,78 @@ window#waybar {
 #language,
 #custom-sunset,
 #custom-playerctl,
+#custom-weather,
 #tray {
     padding-left: 10px;
     padding-right: 10px;
+    color: @text;
 }
 
 
 /* -----------------------------------------------------------------------------
  * Module styles
  * -------------------------------------------------------------------------- */
+#pulseaudio, #cpu, #memory, #battery, #custom-sunset, #custom-dnd, #idle_inhibitor, #bluetooth, #clock {
+    border-top: 2px solid transparent;
+    padding-bottom: 2px;
+    background-color: @mantle;
+    border-color: @crust;
+}
 
-#custom-scratchpad, #custom-menu, #workspaces button.focused, #clock  {
-    color: @theme_bg_color;
-    background-color: @theme_selected_bg_color;
+#cpu, #memory, #battery {
+    color: @teal;
+}
+
+#bluetooth.enabled {
+    color: @sky;
+}
+
+#pulseaudio {
+    color: @sky;
+}
+
+#custom-sunset {
+    color: @peach;
+}
+
+#custom-dnd {
+    color: @sapphire;
+}
+
+#idle_inhibitor {
+    color: @blue;
+}
+
+#bluetooth {
+    color: @lavender;
+}
+
+#custom-scratchpad {
+    color: @crust;
+    background-color: @lavender;
 }
 
 #custom-zeit.tracking {
-    background-color: @warning_color;
+    background-color: @peach;
+}
+
+#custom-weather {
+    color: @text;
 }
 
 #battery {
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
+    color: @saphire;
 }
 
 #battery.warning {
-    color: @warning_color;
+    color: @peach;
 }
 
 #battery.critical {
-    color: @error_color;
+    color: @red;
 }
 
 #battery.warning.discharging {
@@ -125,20 +166,23 @@ window#waybar {
 }
 
 #clock {
+    color: @rosewater;
     font-weight: bold;
 }
 
 #cpu.warning {
-    color: @warning_color;
+    color: @peach;
 }
 
 #cpu.critical {
-    color: @error_color;
+    color: @red;
 }
 
 #custom-menu {
     padding-left: 8px;
     padding-right: 13px;
+    color: @teal;
+    background-color: @base;
 }
 
 #memory {
@@ -148,29 +192,25 @@ window#waybar {
 }
 
 #memory.warning {
-    color: @warning_color;
+    color: @yellow;
 }
 
 #memory.critical {
-    color: @error_color;
+    color: @red;
     animation-name: blink-critical;
     animation-duration: 2s;
 }
 
-#mode {
-    background: @background_color;
-}
-
 #network.disconnected {
-    color: @warning_color;
+    color: @peach;
 }
 
 #pulseaudio.muted {
-    color: @warning_color;
+    color: @pink;
 }
 
 #temperature.critical {
-    color: @error_color;
+    color: @red;
 }
 
 #workspaces button {
@@ -179,27 +219,26 @@ window#waybar {
     padding-bottom: 2px;
     padding-left: 10px;
     padding-right: 10px;
-    color: @theme_selected_bg_color;
+    color: @text;
 }
 
 #workspaces button.focused {
-    border-color: @theme_selected_bg_color;
+    background-color: @mantle;
+    color: @teal;
+    border-color: @crust;
 }
 
 #workspaces button.urgent {
-    border-color: @error_color;
-    color: @error_color;
-}
-
-#custom-pacman {
-    color: @warning_color;
+    border-color: @red;
+    color: @red;
+    background-color: @pink;
 }
 
 #bluetooth.disabled {
-    color: @warning_color;
+    color: @text;
 }
 
 #custom-wf-recorder {
-    color: @error_color;
+    color: @red;
     padding-right: 10px;
 }
