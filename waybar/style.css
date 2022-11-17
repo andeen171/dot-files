@@ -1,4 +1,3 @@
-
 /* =============================================================================
  *
  * Waybar configuration
@@ -8,33 +7,32 @@
  * =========================================================================== */
 
 /* import css definitions for current theme */
-@import "themes/Catppuccin/mocha.css";
+@import 'themes/Catppuccin/mocha.css';
 /* -----------------------------------------------------------------------------
  * Keyframes
  * -------------------------------------------------------------------------- */
 
 @keyframes blink-warning {
-    70% {
-        color: @base;
-    }
+  70% {
+    color: @base;
+  }
 
-    to {
-        color: @mantle;
-        background-color: @peach;
-    }
+  to {
+    color: @mantle;
+    background-color: @peach;
+  }
 }
 
 @keyframes blink-critical {
-    70% {
-      color: @base;
-    }
+  70% {
+    color: @base;
+  }
 
-    to {
-        color: @mantle;
-        background-color: @red;
-    }
+  to {
+    color: @mantle;
+    background-color: @red;
+  }
 }
-
 
 /* -----------------------------------------------------------------------------
  * Base styles
@@ -42,20 +40,20 @@
 
 /* Reset all styles */
 * {
-    border: none;
-    border-radius: 0;
-    min-height: 0;
-    margin: 0;
-    padding: 0;
-    font-family: "RobotoMono Nerd Font", "Roboto Mono", sans-serif;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  font-family: 'RobotoMono Nerd Font', 'Roboto Mono', sans-serif;
 }
 
 /* The whole bar */
 window#waybar {
-    background: @base;
-    color: @text;
-    font-size: 14px;
-    opacity: 0.9;
+  background: @base;
+  color: @text;
+  font-size: 14px;
+  opacity: 0.9;
 }
 
 /* Each module */
@@ -83,162 +81,193 @@ window#waybar {
 #custom-playerctl,
 #custom-weather,
 #tray {
-    padding-left: 10px;
-    padding-right: 10px;
-    color: @text;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: @text;
 }
-
 
 /* -----------------------------------------------------------------------------
  * Module styles
  * -------------------------------------------------------------------------- */
-#pulseaudio, #cpu, #memory, #battery, #custom-sunset, #custom-dnd, #idle_inhibitor, #bluetooth, #clock {
-    border-top: 2px solid transparent;
-    padding-bottom: 2px;
-    background-color: @mantle;
-    border-color: @crust;
+#pulseaudio,
+#cpu,
+#memory,
+#battery,
+#custom-sunset,
+#custom-dnd,
+#idle_inhibitor,
+#bluetooth,
+#clock {
+  border-top: 2px solid transparent;
+  padding-bottom: 2px;
+  background-color: @mantle;
+  border-color: @crust;
 }
 
-#cpu, #memory, #battery {
-    color: @teal;
-}
-
-#bluetooth.enabled {
-    color: @sky;
+#cpu,
+#memory,
+#battery {
+  color: @teal;
 }
 
 #pulseaudio {
-    color: @sky;
+  color: @sky;
 }
 
 #custom-sunset {
-    color: @peach;
+  color: @peach;
 }
 
 #custom-dnd {
-    color: @sapphire;
+  color: @sapphire;
 }
 
 #idle_inhibitor {
-    color: @blue;
+  color: @blue;
 }
 
 #bluetooth {
-    color: @lavender;
+  color: @lavender;
 }
 
 #custom-scratchpad {
-    color: @crust;
-    background-color: @lavender;
+  color: @crust;
+  background-color: @lavender;
 }
 
 #custom-zeit.tracking {
-    background-color: @peach;
-}
-
-#custom-weather {
-    color: @text;
+  background-color: @peach;
 }
 
 #battery {
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    color: @saphire;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  color: @saphire;
 }
 
 #battery.warning {
-    color: @peach;
+  color: @peach;
 }
 
 #battery.critical {
-    color: @red;
+  color: @red;
 }
 
 #battery.warning.discharging {
-    animation-name: blink-warning;
-    animation-duration: 3s;
+  animation-name: blink-warning;
+  animation-duration: 3s;
 }
 
 #battery.critical.discharging {
-    animation-name: blink-critical;
-    animation-duration: 2s;
+  animation-name: blink-critical;
+  animation-duration: 2s;
 }
 
 #clock {
-    color: @rosewater;
-    font-weight: bold;
+  color: @rosewater;
+  font-weight: bold;
 }
 
 #cpu.warning {
-    color: @peach;
+  color: @peach;
 }
 
 #cpu.critical {
-    color: @red;
+  color: @red;
 }
 
 #custom-menu {
-    padding-left: 8px;
-    padding-right: 13px;
-    color: @teal;
-    background-color: @base;
+  padding-left: 8px;
+  padding-right: 13px;
+  color: @teal;
+  background-color: @base;
 }
 
 #memory {
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 #memory.warning {
-    color: @yellow;
+  color: @yellow;
 }
 
 #memory.critical {
-    color: @red;
-    animation-name: blink-critical;
-    animation-duration: 2s;
+  color: @red;
+  animation-name: blink-critical;
+  animation-duration: 2s;
 }
 
 #network.disconnected {
-    color: @peach;
+  color: @peach;
 }
 
 #pulseaudio.muted {
-    color: @pink;
+  color: @pink;
 }
 
 #temperature.critical {
-    color: @red;
+  color: @red;
 }
 
 #workspaces button {
-    border-top: 2px solid transparent;
-    /* To compensate for the top border and still have vertical centering */
-    padding-bottom: 2px;
-    padding-left: 10px;
-    padding-right: 10px;
-    color: @text;
+  border-top: 2px solid transparent;
+  padding-bottom: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: @text;
 }
 
 #workspaces button.focused {
-    background-color: @mantle;
+  background-color: @mantle;
+  border-color: @crust;
+}
+
+#workspaces button:nth-child(1).focused {
     color: @teal;
-    border-color: @crust;
+}
+
+#workspaces button:nth-child(2).focused {
+    color: @sapphire;
+}
+
+#workspaces button:nth-child(3).focused {
+    color: @lavender;
+}
+
+#workspaces button:nth-child(4).focused {
+    color: @mauve;
+}
+
+#workspaces button:nth-child(5).focused {
+    color: @pink;
+}
+
+#workspaces button:nth-child(6).focused {
+    color: @maroon;
+}
+
+#workspaces button:nth-child(7).focused {
+    color: @red;
+}
+
+#workspaces button:nth-child(8).focused {
+    color: @peach;
+}
+
+#workspaces button:nth-child(9).focused {
+    color: @rosewater;
 }
 
 #workspaces button.urgent {
-    border-color: @red;
-    color: @red;
-    background-color: @pink;
-}
-
-#bluetooth.disabled {
-    color: @text;
+  border-color: @red;
+  color: @red;
+  background-color: @pink;
 }
 
 #custom-wf-recorder {
-    color: @red;
-    padding-right: 10px;
+  color: @red;
+  padding-right: 10px;
 }
