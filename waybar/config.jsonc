@@ -22,32 +22,27 @@
     ],
     "modules-center": [
         "custom/wf-recorder",
-        "clock",
         "custom/playerctl"
     ],
     "modules-right": [
-        // informational
         // "sway/language",
-        "custom/weather",
+        // "custom/weather",
         "tray",
+        "battery",
         "custom/github",
-        "custom/clipboard",
         "custom/pacman",
-        "custom/zeit",
-        // "temperature",
-        // connecting
-        "network",
-        "bluetooth",
-        // media
         "idle_inhibitor",
+        "custom/clipboard",
+        "custom/zeit",
         "custom/dnd",
+        "custom/sunset",
         "pulseaudio",
-        // "backlight",
+        "backlight",
         "cpu",
         "memory",
-        // system
-        "battery",
-        "custom/sunset"
+        "bluetooth",
+        "network",
+        "clock"
     ],
     // -------------------------------------------------------------------------
     // Modules
@@ -72,7 +67,7 @@
     },
     "clock": {
         "interval": 1,
-        "format": "{:%e %b %Y %H:%M:%S}",
+        "format": "{: %H:%M:%S}",
         "tooltip": true,
         "tooltip-format": "<big>{:%B %Y}</big>\n<tt>{calendar}</tt>",
         "on-click": "swaymsg exec \\$calendar"
@@ -126,7 +121,7 @@
     },
     "pulseaudio": {
         "scroll-step": 5,
-        "format": "{icon} {volume}%{format_source}",
+        "format": "{icon} <span>{volume}%{format_source}</span>",
         "format-muted": "婢 {format_source}",
         "format-source": "",
         "format-source-muted": " ",

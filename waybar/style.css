@@ -89,29 +89,33 @@ window#waybar {
 /* -----------------------------------------------------------------------------
  * Module styles
  * -------------------------------------------------------------------------- */
-#pulseaudio,
-#cpu,
-#memory,
-#battery,
-#custom-sunset,
-#custom-dnd,
-#idle_inhibitor,
-#bluetooth,
+
 #clock {
-  border-top: 2px solid transparent;
-  padding-bottom: 2px;
-  background-color: @mantle;
-  border-color: @crust;
+    color: @lavender;
 }
 
-#cpu,
-#memory,
-#battery {
-  color: @teal;
+#network {
+    color: @blue;
+}
+
+#bluetooth {
+    color: @sapphire;
+}
+
+#memory {
+    color: @sky;
+}
+
+#cpu {
+    color: @teal;
+}
+
+#backlight {
+    color: @green;
 }
 
 #pulseaudio {
-  color: @sky;
+    color: @yellow;
 }
 
 #custom-sunset {
@@ -119,20 +123,19 @@ window#waybar {
 }
 
 #custom-dnd {
-  color: @sapphire;
+  color: @maroon;
+}
+
+#custom-zeit {
+  color: @red;
+}
+
+#custom-clipboard {
+  color: @mauve;
 }
 
 #idle_inhibitor {
-  color: @blue;
-}
-
-#bluetooth {
-  color: @lavender;
-}
-
-#custom-scratchpad {
-  color: @crust;
-  background-color: @lavender;
+  color: @pink;
 }
 
 #custom-zeit.tracking {
@@ -164,19 +167,6 @@ window#waybar {
   animation-duration: 2s;
 }
 
-#clock {
-  color: @rosewater;
-  font-weight: bold;
-}
-
-#cpu.warning {
-  color: @peach;
-}
-
-#cpu.critical {
-  color: @red;
-}
-
 #custom-menu {
   padding-left: 8px;
   padding-right: 13px;
@@ -188,10 +178,6 @@ window#waybar {
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-direction: alternate;
-}
-
-#memory.warning {
-  color: @yellow;
 }
 
 #memory.critical {
@@ -226,7 +212,7 @@ window#waybar {
 }
 
 #workspaces button:nth-child(1).focused {
-    color: @teal;
+    color: @sky;
 }
 
 #workspaces button:nth-child(2).focused {
