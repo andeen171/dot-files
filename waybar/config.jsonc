@@ -85,8 +85,8 @@
         "interval": 5,
         "format": " {}%",
         "states": {
-            "warning": 50,
-            "critical": 80
+            "warning": 60,
+            "critical": 90
         },
         "on-click": "swaymsg exec \\$term_float htop"
     },
