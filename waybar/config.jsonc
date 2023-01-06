@@ -37,7 +37,7 @@
         "custom/dnd",
         "custom/sunset",
         "pulseaudio",
-        "backlight",
+        // "backlight",
         "cpu",
         "memory",
         "bluetooth",
