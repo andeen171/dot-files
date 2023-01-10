@@ -15,6 +15,9 @@ set $down_alt j
 set $up_alt k
 set $right_alt l
 
+# Random wallpaper bash script
+set $random_wallpaper_script ~/.config/sway/scripts/random-wallpaper-2outputs.sh
+
 # Add --to-code to bindsym, support for non-latin layouts
 set $bindsym bindsym --to-code
 
