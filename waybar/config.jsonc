@@ -1,0 +1,284 @@
+{
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "height": 30, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 0, // Gaps between modules (4px)
+    "margin": "10px 10px 0px 10px",
+    // Choose the order of the modules
+    "modules-left": [
+        "custom/menu",
+        "wlr/workspaces"
+    ],
+    "modules-center": [
+        "custom/wf-recorder",
+        "custom/playerctl"
+    ],
+    "modules-right": [
+        "tray",
+
+        "custom/sep",
+        "idle_inhibitor",
+        
+        // "custom/sep",
+        // "custom/clipboard",
+
+        "custom/sep",
+        "custom/dnd",
+
+        "custom/sep",
+        "pulseaudio",
+
+        "custom/sep",
+        "cpu",
+
+        "custom/sep",
+        "memory",
+
+        "custom/sep",
+        "network",
+        
+        "custom/sep",
+        "clock"
+    ],
+    // -------------------------------------------------------------------------
+    // Modules
+    // -------------------------------------------------------------------------
+    "battery": {
+        "interval": 30,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format-charging": " {capacity}%",
+        "format": "{icon} {capacity}%",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "tooltip": true
+    },
+    "clock": {
+        "interval": 1,
+        "format": "{: %H:%M:%S}",
+        "tooltip": true,
+        "tooltip-format": "<big>{:%B %Y}</big>\n<tt>{calendar}</tt>",
+        "on-click": "hyprctl dispatch exec \\$calendar"
+    },
+    "cpu": {
+        "interval": 5,
+        "format": "﬙ {usage}%",
+        "states": {
+            "warning": 70,
+            "critical": 90
+        },
+        "on-click": "hyprctl dispatch exec \\$term_float htop"
+    },
+    "memory": {
+        "interval": 5,
+        "format": " {}%",
+        "states": {
+            "warning": 60,
+            "critical": 90
+        },
+        "on-click": "hyprctl dispatch exec \\$term_float htop"
+    },
+    "network": {
+        "format-wifi": "",
+        "format-ethernet": " {ipaddr}/{cidr}",
+        "format-disconnected": "睊",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "零",
+            "deactivated": "鈴"
+        }
+    },
+    "pulseaudio": {
+        "scroll-step": 5, // %, can be a float
+        "format": "{icon} {volume}",
+        "format-bluetooth": "{icon} {volume}",
+        "format-bluetooth-muted": " ",
+        "format-muted": " ",
+        "format-icons": {
+            "default": [
+                "",
+                "",
+                ""
+            ]
+        },
+        "on-click": "pavucontrol"
+    },
+    "tray": {
+        "icon-size": 18,
+        "spacing": 10
+    },
+    "custom/pacman": {
+        "format": " {} ",
+        "interval": 3600,
+        "exec-if": "[ $(pamac checkupdates -q | wc -l) -gt 0 ]",
+        "exec": "pamac checkupdates -q | wc -l",
+        "on-click": "pamac-manager --updates; pkill -RTMIN+4 waybar",
+        "signal": 4
+    },
+    "custom/menu": {
+        "format": "",
+        "on-click": "hyprctl dispatch -- exec rofi -show drun",
+        "tooltip": false
+    },
+    "custom/wf-recorder": {
+        "interval": "once",
+        "return-type": "json",
+        "format": "{}",
+        "tooltip-format": "{tooltip}",
+        "exec": "echo '{\"class\": \"recording\",\"text\":\"雷\",\"tooltip\":\"press $mod+Esc to stop recording\"}'",
+        "exec-if": "pgrep wf-recorder",
+        "on-click": "killall -s SIGINT wf-recorder",
+        "signal": 8
+    },
+    "custom/github": {
+        "interval": 300,
+        "tooltip": false,
+        "return-type": "json",
+        "format": " {}",
+        "exec": "gh api '/notifications' -q '{ text: length }' | cat -",
+        "exec-if": "[ -x \"$(command -v gh)\" ] && gh auth status 2>&1 | grep -q -m 1 'Logged in' && gh api '/notifications' -q 'length' | grep -q -m 1 '0' ; test $? -eq 1",
+        "on-click": "xdg-open https://github.com/notifications && sleep 30 && pkill -RTMIN+4 waybar",
+        "signal": 4
+    },
+    "custom/playerctl": {
+        "format": "{icon}  <span>{}</span>",
+        "return-type": "json",
+        "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} ~ {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+        "on-click-middle": "playerctl play-pause",
+        "on-click": "playerctl previous",
+        "on-click-right": "playerctl next",
+        "format-icons": {
+            "Playing": "<span foreground='#b4befe'></span>",
+            "Paused": "<span foreground='#fab387'></span>"
+        }
+    },
+    "custom/clipboard": {
+        "format": "",
+        "interval": "once",
+        "return-type": "json",
+        "on-click": "hyprctl dispatch -q exec '$clipboard'; pkill -RTMIN+9 waybar",
+        "on-click-right": "hyprctl dispatch -q exec '$clipboard-del'; pkill -RTMIN+9 waybar",
+        "on-click-middle": "rm -f ~/.cache/cliphist/db; pkill -RTMIN+9 waybar",
+        "exec": "printf '{\"tooltip\":\"%s\"}' $(cliphist list | wc -l)' item(s) in the clipboard\r(Mid click to clear)'",
+        "exec-if": "[ -x \"$(command -v cliphist)\" ] && [ $(cliphist list | wc -l) -gt 0 ]",
+        "signal": 9
+    },
+    "custom/weather": {
+        "icon-size": 42,
+        "format": "{icon} {}",
+        "tooltip": true,
+        "interval": 3600,
+        // accepts a location as an argument (in quotes)
+        "exec": "/usr/share/sway/scripts/weather.py",
+        "return-type": "json",
+        "format-icons": {
+            "Unknown": "",
+            "Cloudy": "摒",
+            "Fog": "",
+            "HeavyRain": "",
+            "HeavyShowers": "",
+            "HeavySnow": "",
+            "HeavySnowShowers": "ﰕ",
+            "LightRain": "",
+            "LightShowers": "",
+            "LightSleet": "",
+            "LightSleetShowers": "",
+            "LightSnow": "",
+            "LightSnowShowers": "ﭽ",
+            "PartlyCloudy": "",
+            "Sunny": "",
+            "ThunderyHeavyRain": "ﭼ",
+            "ThunderyShowers": "",
+            "ThunderySnowShowers": "",
+            "VeryCloudy": ""
+        }
+    },
+    "custom/dnd": {
+        "interval": "once",
+        "return-type": "json",
+        "format": "{}{icon}",
+        "format-icons": {
+            "default": "",
+            "dnd": "ﮡ"
+        },
+        "on-click": "makoctl mode | grep 'do-not-disturb' && makoctl mode -r do-not-disturb || makoctl mode -a do-not-disturb; pkill -RTMIN+11 waybar",
+        "on-click-right": "makoctl restore",
+        "exec": "printf '{\"alt\":\"%s\",\"tooltip\":\"mode: %s\"}' $(makoctl mode | grep -q 'do-not-disturb' && echo dnd || echo default) $(makoctl mode | tail -1)",
+        "signal": 11
+    },
+    "custom/sep": {
+        "format": ""
+    },
+    "wlr/workspaces": {
+        "all-outputs": true,
+        "format": "{icon}",
+        "format-icons": {
+            "1": "ﲵ",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "例",
+            "urgent": "",
+            "focused": "",
+            "default": ""
+        },
+        "on-click": "activate"
+    },
+    "keyboard-state": {
+        "numlock": true,
+        "capslock": true,
+        "format": "{name} {icon}",
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    },
+    "sway/scratchpad": {
+        "format": "{icon} {count}",
+        "show-empty": false,
+        "format-icons": [
+            "",
+            ""
+        ],
+        "tooltip": true,
+        "tooltip-format": "{app}: {title}"
+    },
+    "mpd": {
+        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
+        "format-disconnected": "Disconnected ",
+        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+        "unknown-tag": "N/A",
+        "interval": 2,
+        "consume-icons": {
+            "on": " "
+        },
+        "random-icons": {
+            "off": "<span color=\"#f53c3c\"></span> ",
+            "on": " "
+        },
+        "repeat-icons": {
+            "on": " "
+        },
+        "single-icons": {
+            "on": "1 "
+        },
+        "state-icons": {
+            "paused": "",
+            "playing": ""
+        },
+        "tooltip-format": "MPD (connected)",
+        "tooltip-format-disconnected": "MPD (disconnected)"
+    }
+}

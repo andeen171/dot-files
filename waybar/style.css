@@ -1,0 +1,286 @@
+/* =============================================================================
+ *
+ * Waybar configuration
+ *
+ * Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
+ *
+ * =========================================================================== */
+
+/* import css definitions for current theme */
+@import 'themes/Catppuccin/mocha.css';
+/* -----------------------------------------------------------------------------
+ * Keyframes
+ * -------------------------------------------------------------------------- */
+
+@keyframes blink-warning {
+  70% {
+    color: @base;
+  }
+
+  to {
+    color: @mantle;
+    background-color: @peach;
+  }
+}
+
+@keyframes blink-critical {
+  70% {
+    color: @base;
+  }
+
+  to {
+    color: @mantle;
+    background-color: @red;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+ * Base styles
+ * -------------------------------------------------------------------------- */
+
+/* Reset all styles */
+* {
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  font-family: 'FiraCode Nerd Font', 'FiraCode Nerd Font Mono', sans-serif;
+}
+
+/* The whole bar */
+window#waybar {
+  background: transparent;
+  color: @text;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* Each module */
+#custom-pacman,
+#custom-menu,
+#custom-help,
+#custom-scratchpad,
+#custom-github,
+#custom-clipboard,
+#custom-zeit,
+#custom-dnd,
+#bluetooth,
+#battery,
+#clock,
+#cpu,
+#memory,
+#mode,
+#network,
+#pulseaudio,
+#temperature,
+#idle_inhibitor,
+#backlight,
+#language,
+#custom-sunset,
+#custom-playerctl,
+#custom-weather,
+#custom-sep,
+#tray {
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: @base;
+  color: @text;
+}
+
+/* -----------------------------------------------------------------------------
+ * Module styles
+ * -------------------------------------------------------------------------- */
+#tray {
+  padding-left: 10px;
+  border-radius: 10px 0 0 10px;
+}
+
+#clock {
+    color: @lavender;
+    border-radius: 0 10px 10px 0;
+    padding-right: 10px;
+}
+
+#custom-playerctl {
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 10px;
+}
+
+#network {
+    color: @blue;
+}
+
+#bluetooth {
+    color: @sapphire;
+}
+
+#memory {
+    color: @sky;
+}
+
+#cpu {
+    color: @teal;
+}
+
+#backlight {
+  color: @green;
+}
+
+#pulseaudio {
+    color: @yellow;
+}
+
+#custom-sunset {
+  color: @peach;
+}
+
+#custom-dnd {
+  color: @maroon;
+}
+
+#custom-zeit {
+  color: @red;
+}
+
+#custom-clipboard {
+  color: @mauve;
+}
+
+#idle_inhibitor {
+  color: @pink;
+}
+
+#custom-zeit.tracking {
+  background-color: @peach;
+}
+
+#battery {
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  color: @saphire;
+}
+
+#battery.warning {
+  color: @peach;
+}
+
+#battery.critical {
+  color: @red;
+}
+
+#battery.warning.discharging {
+  animation-name: blink-warning;
+  animation-duration: 3s;
+}
+
+#battery.critical.discharging {
+  animation-name: blink-critical;
+  animation-duration: 2s;
+}
+
+#custom-menu {
+  padding-left: 15px;
+  padding-right: 20px;
+  font-size: 18px;
+  border-radius: 10px;
+  background-color: @base;
+  margin-right: 10px;
+  color: @sapphire;
+}
+
+#memory {
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#memory.critical {
+  color: @red;
+  animation-name: blink-critical;
+  animation-duration: 2s;
+}
+
+#network.disconnected {
+  color: @peach;
+}
+
+#pulseaudio.muted {
+  color: @pink;
+}
+
+#temperature.critical {
+  color: @red;
+}
+
+#workspaces button {
+  border-top: 2px solid transparent;
+  padding-bottom: 2px;
+  padding-left: 10px;
+  padding-right: 15px;
+  color: @text;
+  background-color: @base;
+  font-size: 16px;
+}
+
+#workspaces button:first-child {
+  border-radius: 10px 0 0 10px;
+}
+
+#workspaces button:last-child {
+  border-radius: 0 10px 10px 0;
+}
+
+#workspaces button.active {
+  background-color: @mantle;
+  border-color: @crust;
+}
+
+#workspaces button:hover {
+  background-color: @mantle;
+  border-color: @crust;
+}
+
+#workspaces button:nth-child(1).active {
+    color: @lavender;
+}
+
+#workspaces button:nth-child(2).active {
+    color: @pink;
+}
+
+#workspaces button:nth-child(3).active {
+    color: @sapphire;
+}
+
+#workspaces button:nth-child(4).active {
+    color: @green;
+}
+
+#workspaces button:nth-child(5).active {
+    color: @yellow;
+}
+
+#workspaces button:nth-child(6).active {
+    color: @flamingo;
+}
+
+#workspaces button:nth-child(7).active {
+    color: @mauve;
+}
+
+#workspaces button:nth-child(8).active {
+    color: @maroon;
+}
+
+#workspaces button:nth-child(9).active {
+    color: @yellow;
+}
+
+#workspaces button.urgent {
+  border-color: @red;
+  color: @red;
+  background-color: @pink;
+}
