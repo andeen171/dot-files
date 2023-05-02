@@ -1,0 +1,2 @@
+command = "rofi"
+args = ["-show", "drun"]
