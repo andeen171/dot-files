@@ -182,8 +182,8 @@ window#waybar {
 }
 
 #custom-menu {
-  padding-left: 15px;
-  padding-right: 20px;
+  padding-left: 12px;
+  padding-right: 17px;
   font-size: 18px;
   border-radius: 10px;
   background-color: @base;
@@ -226,11 +226,13 @@ window#waybar {
 }
 
 #workspaces button:first-child {
-  border-radius: 10px 0 0 10px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 #workspaces button:last-child {
-  border-radius: 0 10px 10px 0;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 #workspaces button.active {
