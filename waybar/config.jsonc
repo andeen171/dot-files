@@ -20,8 +20,8 @@
         "custom/sep",
         "idle_inhibitor",
         
-        // "custom/sep",
-        // "custom/clipboard",
+        "custom/sep",
+        "custom/clipboard",
 
         "custom/sep",
         "custom/dnd",
@@ -50,15 +50,15 @@
             "warning": 30,
             "critical": 15
         },
-        "format-charging": " {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
         "format": "{icon} {capacity}%",
         "format-icons": [
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
+            "󰂃",
+            "󰁺",
+            "󰁼",
+            "󰁾",
+            "󰂀",
+            "󰁹"
         ],
         "tooltip": true
     },
@@ -71,7 +71,7 @@
     },
     "cpu": {
         "interval": 5,
-        "format": "﬙ {usage}%",
+        "format": " {usage}%",
         "states": {
             "warning": 70,
             "critical": 90
@@ -80,7 +80,7 @@
     },
     "memory": {
         "interval": 5,
-        "format": " {}%",
+        "format": "󰘚 {}%",
         "states": {
             "warning": 60,
             "critical": 90
@@ -89,22 +89,22 @@
     },
     "network": {
         "format-wifi": "",
-        "format-ethernet": " {ipaddr}/{cidr}",
-        "format-disconnected": "睊",
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰖪",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
-            "activated": "零",
-            "deactivated": "鈴"
+            "activated": "󰒳",
+            "deactivated": "󰒲"
         }
     },
     "pulseaudio": {
         "scroll-step": 5, // %, can be a float
         "format": "{icon} {volume}",
-        "format-bluetooth": "{icon} {volume}",
-        "format-bluetooth-muted": " ",
+        "format-bluetooth": "󰂯{icon} {volume}",
+        "format-bluetooth-muted": "󰂯 ",
         "format-muted": " ",
         "format-icons": {
             "default": [
@@ -120,7 +120,7 @@
         "spacing": 10
     },
     "custom/pacman": {
-        "format": " {} ",
+        "format": "󰀼 {}",
         "interval": 3600,
         "exec-if": "[ $(pamac checkupdates -q | wc -l) -gt 0 ]",
         "exec": "pamac checkupdates -q | wc -l",
@@ -165,10 +165,10 @@
         }
     },
     "custom/clipboard": {
-        "format": "",
+        "format": "󰆒",
         "interval": "once",
         "return-type": "json",
-        "on-click": "hyprctl dispatch -q exec '$clipboard'; pkill -RTMIN+9 waybar",
+        "on-click": "cliphist list | rofi -dmenu | cliphist decode | wl-copy",
         "on-click-right": "hyprctl dispatch -q exec '$clipboard-del'; pkill -RTMIN+9 waybar",
         "on-click-middle": "rm -f ~/.cache/cliphist/db; pkill -RTMIN+9 waybar",
         "exec": "printf '{\"tooltip\":\"%s\"}' $(cliphist list | wc -l)' item(s) in the clipboard\r(Mid click to clear)'",
@@ -185,12 +185,12 @@
         "return-type": "json",
         "format-icons": {
             "Unknown": "",
-            "Cloudy": "摒",
+            "Cloudy": "󰖐",
             "Fog": "",
             "HeavyRain": "",
             "HeavyShowers": "",
             "HeavySnow": "",
-            "HeavySnowShowers": "ﰕ",
+            "HeavySnowShowers": "󰜗",
             "LightRain": "",
             "LightShowers": "",
             "LightSleet": "",
@@ -210,8 +210,8 @@
         "return-type": "json",
         "format": "{}{icon}",
         "format-icons": {
-            "default": "",
-            "dnd": "ﮡ"
+            "default": "󰍩",
+            "dnd": "󰚣"
         },
         "on-click": "makoctl mode | grep 'do-not-disturb' && makoctl mode -r do-not-disturb || makoctl mode -a do-not-disturb; pkill -RTMIN+11 waybar",
         "on-click-right": "makoctl restore",
@@ -219,17 +219,17 @@
         "signal": 11
     },
     "custom/sep": {
-        "format": ""
+        "format": "󰇙"
     },
     "wlr/workspaces": {
         "all-outputs": true,
         "format": "{icon}",
         "format-icons": {
-            "1": "ﲵ",
-            "2": "",
-            "3": "",
-            "4": "",
-            "5": "例",
+            "1": "",
+            "2": "󰈹",
+            "3": "",
+            "4": "󰓇",
+            "5": "󰙯",
             "urgent": "",
             "focused": "",
             "default": ""
