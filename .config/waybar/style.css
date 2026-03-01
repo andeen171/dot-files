@@ -23,7 +23,7 @@ window#waybar {
 }
 
 #workspaces button {
-  color: @accent;
+  color: @foreground;
   padding: 0 6px;
   margin: 0 1.5px;
   min-width: 9px;
@@ -31,6 +31,12 @@ window#waybar {
 }
 
 #workspaces button.active {
+  color: @background;
+  background: @accent;
+  border-radius: 10px;
+}
+
+#workspaces button.visible {
   color: @accent;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
@@ -43,7 +49,7 @@ window#waybar {
 
 #workspaces button.empty {
   color: @foreground;
-  opacity: 0.5;
+  opacity: 0.3;
 }
 
 #cpu,
