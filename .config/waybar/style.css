@@ -28,33 +28,28 @@ window#waybar {
   margin: 0 1.5px;
   min-width: 9px;
   transition: all 0.3s ease;
+  opacity: 0.2; /* Subdued for non-active/non-visible */
 }
 
-#workspaces button.active {
-  color: @background;
-  background: @accent;
-  border-radius: 10px;
-}
-
+/* This is the workspace showing on ANY monitor */
 #workspaces button.visible {
   color: @accent;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
+  opacity: 1;
 }
 
-#workspaces button.active.visible {
+/* This is the ONE globally focused workspace */
+#workspaces button.active {
   color: @background;
   background: @accent;
+  border-radius: 10px;
+  opacity: 1;
 }
 
 #workspaces button:hover {
   background: rgba(255, 255, 255, 0.2);
   border-radius: 10px;
-}
-
-#workspaces button.empty {
-  color: @foreground;
-  opacity: 0.15;
 }
 
 #cpu,
