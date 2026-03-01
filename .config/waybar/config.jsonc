@@ -15,6 +15,7 @@
     "battery"
   ],
   "hyprland/workspaces": {
+    "all-outputs": false,
     "on-click": "activate",
     "format": "{icon}",
     "format-icons": {
@@ -32,11 +33,8 @@
       "active": "󱓻"
     },
     "persistent-workspaces": {
-      "1": [],
-      "2": [],
-      "3": [],
-      "4": [],
-      "5": []
+      "HDMI-A-1": [1, 2, 3],
+      "eDP-1": [4, 5]
     }
   },
   "custom/omarchy": {
