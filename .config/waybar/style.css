@@ -3,8 +3,9 @@
 * {
   border: none;
   border-radius: 0;
+  min-height: 0;
   font-family: 'JetBrainsMono Nerd Font';
-  font-size: 13px;
+  font-size: 12px;
 }
 
 window#waybar {
@@ -14,78 +15,71 @@ window#waybar {
 .modules-left,
 .modules-center,
 .modules-right {
-  background: @background;
-  border-radius: 17px;
-  padding: 2px 12px;
+  background-color: @background;
+  border-radius: 13px;
+  margin: 4px 4px 0 4px;
+  padding: 0 10px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-}
-
-#custom-omarchy {
-  color: @accent;
-  font-family: 'omarchy';
-  font-size: 18px;
-  padding-right: 12px;
-}
-
-#workspaces {
-  padding: 0 4px;
 }
 
 #workspaces button {
   color: @foreground;
-  padding: 0 10px;
-  margin: 4px 2px;
-  border-radius: 12px;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  min-width: 24px;
+  padding: 0 6px;
+  margin: 0 1.5px;
+  min-width: 9px;
+  transition: all 0.3s ease;
 }
 
-/* The workspace currently displayed on the monitor */
-#workspaces button.visible {
-  background: rgba(255, 255, 255, 0.1);
-  color: @accent;
-}
-
-/* The globally focused workspace */
 #workspaces button.active {
-  background: @accent;
-  color: @background;
-  min-width: 36px; /* Pill expansion effect */
+  color: @accent;
+  background: transparent;
 }
 
 #workspaces button:hover {
-  background: rgba(255, 255, 255, 0.15);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
 }
 
-#workspaces button.urgent {
-  background: #f38ba8;
-  color: @background;
+#workspaces button.empty {
+  opacity: 0.5;
 }
 
-#clock, #pulseaudio, #network, #battery, #tray {
-  padding: 0 10px;
+#cpu,
+#battery,
+#pulseaudio,
+#custom-omarchy,
+#custom-update,
+#clock,
+#network,
+#bluetooth,
+#tray {
   color: @foreground;
+  padding: 0 8px;
 }
 
-#battery.charging {
-  color: #a6e3a1;
-}
-
-#battery.warning {
-  color: #fab387;
-}
-
-#battery.critical {
-  color: #f38ba8;
-  animation: blink 0.5s infinite alternate;
-}
-
-@keyframes blink {
-  to { opacity: 0.5; }
+#custom-omarchy {
+  color: @accent;
+  font-size: 16px;
 }
 
 #tray {
   margin-right: 4px;
+}
+
+tooltip {
+  background: @background;
+  border: 1px solid @accent;
+  border-radius: 8px;
+}
+
+#custom-update {
+  font-size: 10px;
+  color: @accent;
+}
+
+#custom-screenrecording-indicator.active,
+#custom-idle-indicator.active,
+#custom-notification-silencing-indicator.active,
+#custom-voxtype.recording {
+  color: #f38ba8;
 }
