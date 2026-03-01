@@ -30,24 +30,21 @@ window#waybar {
   transition: all 0.3s ease;
 }
 
-#workspaces button.current_output.active {
+#workspaces button.active {
   color: @background;
   background: @accent;
   border-radius: 10px;
 }
 
-#workspaces button.current_output {
-  color: @accent;
-}
-
 #workspaces button.visible {
-  color: @foreground;
-  opacity: 0.5;
+  color: @accent;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
 }
 
-#workspaces button.current_output.visible {
-  color: @accent;
-  opacity: 1;
+#workspaces button.active.visible {
+  color: @background;
+  background: @accent;
 }
 
 #workspaces button:hover {
