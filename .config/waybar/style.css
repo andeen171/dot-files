@@ -23,7 +23,7 @@ window#waybar {
 }
 
 #workspaces button {
-  color: @foreground;
+  color: @accent;
   padding: 0 6px;
   margin: 0 1.5px;
   min-width: 9px;
@@ -32,15 +32,17 @@ window#waybar {
 
 #workspaces button.active {
   color: @accent;
-  background: transparent;
-}
-
-#workspaces button:hover {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
 }
 
+#workspaces button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
 #workspaces button.empty {
+  color: @foreground;
   opacity: 0.5;
 }
 
@@ -59,7 +61,8 @@ window#waybar {
 
 #custom-omarchy {
   color: @accent;
-  font-size: 16px;
+  font-size: 18px;
+  margin-right: 5px;
 }
 
 #tray {
