@@ -28,10 +28,9 @@ window#waybar {
   margin: 0 1.5px;
   min-width: 9px;
   transition: all 0.3s ease;
-  opacity: 0.2; /* Subdued for non-active/non-visible */
+  opacity: 0.2;
 }
 
-/* This is the workspace showing on ANY monitor */
 #workspaces button.visible {
   color: @accent;
   background: rgba(255, 255, 255, 0.1);
@@ -39,7 +38,6 @@ window#waybar {
   opacity: 1;
 }
 
-/* This is the ONE globally focused workspace */
 #workspaces button.active {
   color: @background;
   background: @accent;
