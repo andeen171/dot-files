@@ -12,10 +12,15 @@ The easiest way to manage these dotfiles is with [chezmoi](https://www.chezmoi.i
 sudo pacman -S chezmoi
 ```
 
-### 2. Initialize and Apply (Omarchy Branch)
+### 2. Initialize and Apply (Chezmoi Branch)
 ```bash
-chezmoi init --apply --branch omarchy andeen171
+chezmoi init --apply --branch chezmoi andeen171/dot-files
 ```
+
+> Note: the `omarchy` branch keeps the old plain `.config` layout for manual
+> installs (see below) and is **not** chezmoi-compatible (chezmoi ignores
+> top-level dotfiles/dirs that aren't named with its `dot_`/`executable_`
+> convention). Only the `chezmoi` branch actually works with `chezmoi init`.
 
 ### 3. Updating
 If you make changes locally:
