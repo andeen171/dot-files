@@ -1,0 +1,1 @@
+/home/andeen/.config/omarchy/current/theme/neovim.lua
