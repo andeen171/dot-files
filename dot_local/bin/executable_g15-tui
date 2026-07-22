@@ -1,0 +1,4 @@
+#!/bin/bash
+# G15 control panel — sudo prompts here in the terminal before the TUI opens
+# (fan/power WMAX calls need root; the LED tab works either way).
+exec sudo /home/andeen/.cargo/bin/g15 tui

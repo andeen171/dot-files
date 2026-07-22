@@ -1,0 +1,12 @@
+#!/bin/bash
+# Shim shadowing omarchy's omarchy-brightness-keyboard (via ~/.config/uwsm/env
+# PATH order). The original writes dell::kbd_backlight (SMBIOS), which wedges
+# this G15's AW-ELC USB LED controller until a full power drain — it wedged on
+# every screen lock (omarchy-system-lock calls "off"). Route everything to the
+# safe USB control-pipe path instead. See ~/dev/g15-cli/protocol.md.
+g15=/home/andeen/.cargo/bin/g15
+case ${1:-up} in
+off) exec "$g15" led off ;;
+restore) exec "$g15" restore ;;
+*) exec "$g15" led brightness cycle ;;
+esac
