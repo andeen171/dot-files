@@ -1,12 +1,12 @@
 #!/bin/bash
-output_file="$HOME/.config/omarchy/current/theme/vscode_colors.json"
+output_file="$HOME/.local/state/omarchy/current/theme/vscode_colors.json"
 
 if ! command -v cursor >/dev/null 2>&1; then
     skipped "Cursor"
 fi
 
 # check current theme for vscode.json
-if [[ -f "$HOME/.config/omarchy/current/theme/vscode.json" ]]; then
+if [[ -f "$HOME/.local/state/omarchy/current/theme/vscode.json" ]]; then
     exit 0
 fi
 

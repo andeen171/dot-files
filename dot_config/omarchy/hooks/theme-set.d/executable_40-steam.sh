@@ -1,6 +1,6 @@
 #!/bin/bash
 
-output_file="$HOME/.config/omarchy/current/theme/steam.css"
+output_file="$HOME/.local/state/omarchy/current/theme/steam.css"
 
 if ! command -v steam >/dev/null 2>&1; then
     skipped "Steam"

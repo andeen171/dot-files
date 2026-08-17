@@ -1,6 +1,6 @@
 #!/bin/bash
 
-output_file="$HOME/.config/omarchy/current/theme/superfile.toml"
+output_file="$HOME/.local/state/omarchy/current/theme/superfile.toml"
 
 if ! command -v spf >/dev/null 2>&1; then
     skipped "Superfile"

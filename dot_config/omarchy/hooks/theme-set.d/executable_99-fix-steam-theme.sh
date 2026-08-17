@@ -6,8 +6,8 @@
 # 40-steam.sh in both passes, so it always leaves a correct steam.css/omarchy.css
 # in place no matter which pass runs last.
 
-input_file="$HOME/.config/omarchy/current/theme/colors.toml"
-output_file="$HOME/.config/omarchy/current/theme/steam.css"
+input_file="$HOME/.local/state/omarchy/current/theme/colors.toml"
+output_file="$HOME/.local/state/omarchy/current/theme/steam.css"
 adwaita_location="$HOME/.local/share/steam-adwaita"
 
 command -v steam >/dev/null 2>&1 || exit 0

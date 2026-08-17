@@ -1,11 +1,7 @@
 -- Learn how to configure Hyprland: https://wiki.hypr.land/Configuring/Start/
 
--- Load user modules from ~/.config and Omarchy defaults from $OMARCHY_PATH.
-package.path = os.getenv("HOME")
-	.. "/.config/?.lua;"
-	.. (os.getenv("OMARCHY_PATH") or (os.getenv("HOME") .. "/.local/share/omarchy"))
-	.. "/?.lua;"
-	.. package.path
+-- Omarchy's bootstrap keeps path setup out of this user config.
+dofile((os.getenv("OMARCHY_PATH") or "/usr/share/omarchy") .. "/default/hypr/bootstrap.lua")
 
 -- All Omarchy default setups
 require("default.hypr.omarchy")

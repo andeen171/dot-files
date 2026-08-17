@@ -1,6 +1,6 @@
 #!/bin/bash
 
-output_file="$HOME/.config/omarchy/current/theme/vicinae.toml"
+output_file="$HOME/.local/state/omarchy/current/theme/vicinae.toml"
 
 if ! command -v vicinae >/dev/null 2>&1; then
     skipped "Vicinae"

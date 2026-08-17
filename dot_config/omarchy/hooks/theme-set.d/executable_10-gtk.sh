@@ -1,7 +1,7 @@
 #!/bin/bash
 
-output_file="$HOME/.config/omarchy/current/theme/gtk.css"
-light_file="$HOME/.config/omarchy/current/theme/light.mode"
+output_file="$HOME/.local/state/omarchy/current/theme/gtk.css"
+light_file="$HOME/.local/state/omarchy/current/theme/light.mode"
 gtk3_dir="$HOME/.config/gtk-3.0"
 gtk4_dir="$HOME/.config/gtk-4.0"
 gtk3_file="$gtk3_dir/gtk.css"

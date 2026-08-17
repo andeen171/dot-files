@@ -1,6 +1,6 @@
 #!/bin/bash
 
-output_file="$HOME/.config/omarchy/current/theme/heroic.css"
+output_file="$HOME/.local/state/omarchy/current/theme/heroic.css"
 
 if ! command -v heroic >/dev/null 2>&1; then
     skipped "Heroic Launcher"

@@ -3,19 +3,13 @@
 # Omarchy 3.3+ uses colors.toml as the source of truth for theme colors.
 # Previously we read from alacritty.toml, but that file is now generated
 # from templates and may contain unrendered {{ placeholders }}.
-input_file="$HOME/.config/omarchy/current/theme/colors.toml"
+input_file="$HOME/.local/state/omarchy/current/theme/colors.toml"
 
-# Extract color value from colors.toml (flat key=value format)
+# Extract color value from colors.toml, resolving legacy color0-15 aliases
+# and semantic names via Omarchy's own resolver.
 extract_color() {
     local color_name="$1"
-    awk -v color="$color_name" '
-        $1 == color && /=/ {
-            if (match($0, /#([0-9a-fA-F]{6})/)) {
-                print substr($0, RSTART + 1, 6)
-                exit
-            }
-        }
-    ' "$input_file"
+    omarchy-theme-color --file "$input_file" "$color_name" | sed 's/^#//'
 }
 
 success() {

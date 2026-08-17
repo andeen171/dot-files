@@ -1,6 +1,6 @@
 #!/bin/bash
 
-output_file="$HOME/.config/omarchy/current/theme/fzf.fish"
+output_file="$HOME/.local/state/omarchy/current/theme/fzf.fish"
 
 if ! command -v fish >/dev/null 2>&1; then
     skipped "Fish - FZF"

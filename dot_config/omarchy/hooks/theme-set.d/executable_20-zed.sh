@@ -1,6 +1,6 @@
 #!/bin/bash
 
-new_zed_file="$HOME/.config/omarchy/current/theme/zed.json"
+new_zed_file="$HOME/.local/state/omarchy/current/theme/zed.json"
 
 create_dynamic_theme() {
 cat > "$new_zed_file" << EOF
