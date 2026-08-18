@@ -16,14 +16,7 @@ command -v python >/dev/null 2>&1 || exit 0
 [[ -d $adwaita_location ]] || exit 0
 
 extract_color() {
-    awk -v color="$1" '
-        $1 == color && /=/ {
-            if (match($0, /#([0-9a-fA-F]{6})/)) {
-                print substr($0, RSTART + 1, 6)
-                exit
-            }
-        }
-    ' "$input_file"
+    omarchy-theme-color --file "$input_file" "$1" | sed 's/^#//'
 }
 
 hex2rgb() {
