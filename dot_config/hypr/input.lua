@@ -3,7 +3,9 @@
 hl.config({
 	input = {
 		-- Use multiple keyboard layouts and switch between them with Left Alt + Right Alt.
-		kb_layout = "us,pt",
+		-- "br" (not "pt"!) is the correct code for the Brazilian ABNT2 layout.
+		-- "pt" is Portugal, which has different punctuation-key placement.
+		kb_layout = "us,br",
 
 		-- Use a specific keyboard variant if needed (e.g. intl for international keyboards).
 		kb_variant = "altgr-intl,",
